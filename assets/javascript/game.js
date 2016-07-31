@@ -8,29 +8,54 @@ var correct = false;
 
 var questions = {
 	question1: {
-		question: 'What is this?',
-		choices: ['one', 'two', 'three', 'four'],
-		answer: ['three']
+		question: 'What later Star Wars actress had an early role in the movie Leon: The Professional?',
+		choices: ['Carrie Fisher', 'Natalie Portman', 'Harrison Ford', 'Daisy Ridley'],
+		answer: ['Natalie Portman']
 	},
 	question2: {
-		question: 'What is where?',
-		choices: ['bird', 'dog', 'cat', 'tree'],
-		answer: ['bird']
+		question: 'Tom Hanks played Captain Miller in what legendary World War II movie?',
+		choices: ['Toy Story', 'Black Hawk Down', 'Saving Private Ryan', 'Tropical Storm'],
+		answer: ['Saving Private Ryan']
 	},
 	question3: {
-		question: 'What is who?',
-		choices: ['one', 'two', 'three', 'four'],
-		answer: ['two']
+		question: 'BB-8 is an astromech droid from what film franchise?',
+		choices: ['Star Trek', 'Star Wars', 'Pacific Rim', 'Oblivion'],
+		answer: ['Star Wars']
 	},
 	question4: {
-		question: 'What is now?',
-		choices: ['one', 'two', 'three', 'four'],
-		answer: ['three']
+		question: 'Which actor that once played James Bond previously competed in the Mr.Universe bodybuilding competition?',
+		choices: ['Sean Connery', 'Daniel Craig', 'Pierce Brosnan', 'The Rock'],
+		answer: ['Sean Connery']
 	},
 	question5: {
-		question: 'What is then?',
-		choices: ['one', 'two', 'three', 'four'],
-		answer: ['four']
+		question: 'Who played the fictional anti hero Deadpool in the 2016 movie?',
+		choices: ['Robert Downey Jr', 'Ryan Reynolds', 'Chris Evans', 'Hugh Jackman'],
+		answer: ['Ryan Reynolds']
+	},
+	question6: {
+		question: 'Superman is a fictional superhero from what fictional planet?',
+		choices: ['Zoness', 'Lexx', 'Athas', 'Krypton'],
+		answer: ['Krypton']
+	},
+	question7: {
+		question: 'Who played Batman in the 1989 Tim Burton version of the film?',
+		choices: ['Michael Keaton', 'Christian Bale', 'Ben Affleck', 'George Clooney'],
+		answer: ['Michael Keaton']
+	},
+	question8: {
+		question: 'Which Teenage Mutant Ninja Turtle always wears red bandanas?',
+		choices: ['Donatello', 'Leonardo', 'Raphael', 'Michaelangelo'],
+		answer: ['Raphael']
+	},
+	question9: {
+		question: 'Which Olympic sport was featured in the movie Cool Runnings?',
+		choices: ['Swimming', 'Skiing', 'Bobsled', 'Snowboarding'],
+		answer: ['Bobsled']
+	},
+	question10: {
+		question: 'In what year was the original Jurassic Park film released?',
+		choices: ['1992', '1998', '2001', '1993'],
+		answer: ['1993']
 	},
 };
 
