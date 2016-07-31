@@ -10,66 +10,74 @@ var questions = {
 	question1: {
 		question: 'What later Star Wars actress had an early role in the movie Leon: The Professional?',
 		choices: ['Carrie Fisher', 'Natalie Portman', 'Harrison Ford', 'Daisy Ridley'],
-		answer: ['Natalie Portman']
+		answer: ['Natalie Portman'],
+		gif: 'assets/images/natalieportman.gif'
 	},
 	question2: {
 		question: 'Tom Hanks played Captain Miller in what legendary World War II movie?',
 		choices: ['Toy Story', 'Black Hawk Down', 'Saving Private Ryan', 'Tropical Storm'],
-		answer: ['Saving Private Ryan']
+		answer: ['Saving Private Ryan'],
+		gif: 'assets/images/savingprivateryan.gif'
 	},
 	question3: {
 		question: 'BB-8 is an astromech droid from what film franchise?',
 		choices: ['Star Trek', 'Star Wars', 'Pacific Rim', 'Oblivion'],
-		answer: ['Star Wars']
+		answer: ['Star Wars'],
+		gif: 'assets/images/bb8.gif'
 	},
 	question4: {
 		question: 'Which actor that once played James Bond previously competed in the Mr.Universe bodybuilding competition?',
 		choices: ['Sean Connery', 'Daniel Craig', 'Pierce Brosnan', 'The Rock'],
-		answer: ['Sean Connery']
+		answer: ['Sean Connery'],
+		gif: 'assets/images/seanconnery.gif'
 	},
 	question5: {
 		question: 'Who played the fictional anti hero Deadpool in the 2016 movie?',
 		choices: ['Robert Downey Jr', 'Ryan Reynolds', 'Chris Evans', 'Hugh Jackman'],
-		answer: ['Ryan Reynolds']
+		answer: ['Ryan Reynolds'],
+		gif: 'assets/images/deadpool.gif'
 	},
 	question6: {
 		question: 'Superman is a fictional superhero from what fictional planet?',
 		choices: ['Zoness', 'Lexx', 'Athas', 'Krypton'],
-		answer: ['Krypton']
+		answer: ['Krypton'],
+		gif: 'assets/images/krypton.gif'
 	},
 	question7: {
 		question: 'Who played Batman in the 1989 Tim Burton version of the film?',
 		choices: ['Michael Keaton', 'Christian Bale', 'Ben Affleck', 'George Clooney'],
-		answer: ['Michael Keaton']
+		answer: ['Michael Keaton'],
+		gif: 'assets/images/michaelkeaton.gif'
 	},
 	question8: {
 		question: 'Which Teenage Mutant Ninja Turtle always wears red bandanas?',
 		choices: ['Donatello', 'Leonardo', 'Raphael', 'Michaelangelo'],
-		answer: ['Raphael']
+		answer: ['Raphael'],
+		gif: 'assets/images/raphael.gif'
 	},
 	question9: {
 		question: 'Which Olympic sport was featured in the movie Cool Runnings?',
 		choices: ['Swimming', 'Skiing', 'Bobsled', 'Snowboarding'],
-		answer: ['Bobsled']
+		answer: ['Bobsled'],
+		gif: 'assets/images/coolrunnings.gif'
 	},
 	question10: {
 		question: 'In what year was the original Jurassic Park film released?',
 		choices: ['1992', '1998', '2001', '1993'],
-		answer: ['1993']
-	},
+		answer: ['1993'],
+		gif: 'assets/images/jurassicpark.gif'
+	}
 };
 
-//THE TITLE
-var title = $('<h1>').addClass('title').text('TRIVIA GAME!');
 
 function startScreen() {
 	//display start screen
 
 	//html elements to display
 	var startDiv = $('<div>').addClass('startScreen');
-	var startBtn = $('<button>').addClass('start').text('START');
-	startDiv.append(title).append(startBtn);
-	$('.main').html(startDiv);
+	var startBtn = $('<button>').addClass('start btn btn-default').text('START');
+	startDiv.append(startBtn);
+	$('.content').html(startDiv);
 }
 
 function questionScreen() {
@@ -79,6 +87,9 @@ function questionScreen() {
 	question = questions["question" + questionIndex].question;
 	choices = questions["question" + questionIndex].choices;
 	answer = questions["question" + questionIndex].answer;
+	gif = questions["question" + questionIndex].gif;
+
+	time = 30;
 
 	//html elements to display
 	var questionDiv = $('<div>').addClass('questionScreen');
@@ -89,8 +100,8 @@ function questionScreen() {
 
 	//iterate through choices and make a button for each one
 	for (var i = 0; i < choices.length; i++) {
-		var choiceBtn = $('<button>').addClass('choice').html(choices[i]);
-		$(choiceDiv).append(choiceBtn);
+		var choiceBtn = $('<button>').addClass('choice btn btn-default').html(choices[i]);
+		$(choiceDiv).append(choiceBtn).append('<br>');
 	}
 
 	//time remaining counter
@@ -109,7 +120,7 @@ function questionScreen() {
 
 	$(innerDiv).append(questionElement).append(choiceDiv);
 	$(questionDiv).append(timeElement).append(innerDiv);
-	$('.main').html(questionDiv);
+	$('.content').html(questionDiv);
 
 	//move to next question in questions object
 	questionIndex++;
@@ -129,11 +140,12 @@ function showCorrectScreen() {
 			endScreen();
 		}
 		reset();
-	}, 1000);
+	}, 3000);
 
 	//html elements to display
 	var answerDiv = $('<div>').addClass('answer');
 	var correctElement = $('<h2>').addClass('correct');
+	var gifElement = $('<img>').attr('src', gif);
 
 	if(!time) {
 		correctElement.html('You ran out of time!');
@@ -148,6 +160,8 @@ function showCorrectScreen() {
 			$(answerDiv).append(correctElement).append(showCorrectElement);
 		}
 	}
+
+	$(answerDiv).append(gifElement);
 	
 	$('.innerDiv').html(answerDiv);
 }
@@ -172,7 +186,6 @@ function endScreen() {
 
 function reset() {
 	correct = false;
-	time = 30;
 	if(gameOver) {
 		correctAnswers = 0;
 		incorrectAnswers = 0;
